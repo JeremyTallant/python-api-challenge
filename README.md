@@ -6,7 +6,7 @@ Data's true power is its ability to definitively answer questions. So, let's tak
 Now, we know what you may be thinking: “That’s obvious. It gets hotter.” But, if pressed for more information, how would you prove that?
 
 ## API Keys
-To run these python scripts for both parts, first you will need to obtain two API Keys. The first API key is for the OpenWeatherMap API which is used in part one. Here is the link: "https://home.openweathermap.org/users/sign_up". The second API key is for the Google Maps API which is used in part two. Here is the link: "https://developers.google.com/maps/documentation/geocoding/start". Once you have obtained both keys you will need to place them in the config.py file that you will see in the WeatherPy folder. 
+To run the python scripts for both parts, first you will need to obtain two API Keys. The first API key is for the OpenWeatherMap API which is used in part one. Here is the link: "https://home.openweathermap.org/users/sign_up". The second API key is for the Google Maps API which is used in part two. Here is the link: "https://developers.google.com/maps/documentation/geocoding/start". Once you have obtained both keys you will need to place them in the config.py file that you will see in the WeatherPy folder. 
 ## Instructions
 This activity is broken down into two deliverables, WeatherPy and VacationPy.
 ## Part 1: WeatherPy
