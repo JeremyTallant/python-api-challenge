@@ -101,4 +101,16 @@ Second heat map:
 
 ![map (3)](https://user-images.githubusercontent.com/112406455/199597152-960855af-0efc-46fb-a856-327c75628144.png)
 
+## Instructions on how to run the code properly:
+* Download the repository onto you computer
+* Open the repository in Jupiter Notebook
+* First add your api keys to the config.py file 
+* Select the WeatherPy.ipynb script located in the WeatherPy folder 
+* Select the "Kernel" tab and click "Restart Kernel and Clear all Outputs"
+* Then proceed to hit shift + enter to cycle through the script cell by cell
+* The code is accompanied by an outline to walk you through the process step by step
+* The output could look different from what you see here since the cities are randomly generated every time you cycle through the script. 
+* Once finished, you will notice an output_data file with a csv of all the cities and the weather information, and images of all the plots that were created. 
+* Next you will want to proceed to the VacationPy.ipynb script, restart the kernel and clear all outputs, and then cycle through the script to generate both heat maps. 
+
 © 2022 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
