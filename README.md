@@ -25,3 +25,4 @@ To fully utilize the functionalities of this project, you'll need to obtain API 
 * **Environment Variables**: For an extra layer of security, consider using environment variables to store your API keys.
 
 By following these steps, you'll have the necessary API keys to successfully run and interact with the APIs used in this project. Remember to keep these keys confidential to protect your account and avoid unauthorized usage.
+## Implementation
