@@ -104,3 +104,73 @@ for lat_lng in lat_lngs:
 print(f"Number of cities in the list: {len(cities)}")
 ```
 In this step, you'll start by preparing two empty lists: one for latitude-longitude pairs and another for city names. Define the range for latitudes and longitudes to span the entire globe. Generate 1500 random latitude and longitude values within these ranges. Then, iterate through these coordinates, using `citipy` to find the nearest city to each pair. Add each unique city to your city list, ensuring a diverse selection for your weather analysis. After completing the loop, check the number of cities gathered to ensure you have a robust dataset for the next stages of your project.
+#### Weather Data Collection from API
+```python
+# Set the API base URL
+url =  "http://api.openweathermap.org/data/2.5/weather?"
+
+# Define an empty list to fetch the weather data for each city
+city_data = []
+
+# Print to logger
+print("Beginning Data Retrieval     ")
+print("-----------------------------")
+
+# Create counters
+record_count = 1
+set_count = 1
+
+# Loop through all the cities in our list to fetch weather data
+for i, city in enumerate(cities):
+        
+    # Group cities in sets of 50 for logging purposes
+    if (i % 50 == 0 and i >= 50):
+        set_count += 1
+        record_count = 0
+
+    # Create endpoint URL with each city
+    city_url = f"{url}q={city}&appid={weather_api_key}&units=imperial"
+    
+    # Log the url, record, and set numbers
+    print("Processing Record %s of Set %s | %s" % (record_count, set_count, city))
+
+    # Add 1 to the record count
+    record_count += 1
+
+    # Run an API request for each of the cities
+    try:
+        # Parse the JSON and retrieve data
+        city_weather = requests.get(city_url).json()
+
+        # Parse out latitude, longitude, max temp, humidity, cloudiness, wind speed, country, and date
+        city_lat = city_weather['coord']['lat']
+        city_lng = city_weather['coord']['lon']
+        city_max_temp = city_weather['main']['temp_max']
+        city_humidity = city_weather['main']['humidity']
+        city_clouds = city_weather['clouds']['all']
+        city_wind = city_weather['wind']['speed']
+        city_country = city_weather['sys']['country']
+        city_date = city_weather['dt']
+
+        # Append the City information into city_data list
+        city_data.append({"City": city, 
+                          "Lat": city_lat, 
+                          "Lng": city_lng, 
+                          "Max Temp": city_max_temp,
+                          "Humidity": city_humidity,
+                          "Cloudiness": city_clouds,
+                          "Wind Speed": city_wind,
+                          "Country": city_country,
+                          "Date": city_date})
+
+    # If an error is experienced, skip the city
+    except:
+        print("City not found. Skipping...")
+        pass
+              
+# Indicate that Data Loading is complete 
+print("-----------------------------")
+print("Data Retrieval Complete      ")
+print("-----------------------------")
+```
+Here, you'll set up an API request to gather weather data for each city in your list. Start by defining the base URL for the OpenWeatherMap API. You'll then loop through each city, dynamically creating the full URL for each API request. For every city, the script makes a GET request to the API, retrieving key weather data such as latitude, longitude, maximum temperature, humidity, cloudiness, wind speed, country, and the date of the weather data. This information is stored in a list. The loop includes error handling to skip any cities that are not found. After processing all cities, a message confirms the completion of data retrieval.
