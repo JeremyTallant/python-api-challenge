@@ -174,3 +174,12 @@ print("Data Retrieval Complete      ")
 print("-----------------------------")
 ```
 Here, you'll set up an API request to gather weather data for each city in your list. Start by defining the base URL for the OpenWeatherMap API. You'll then loop through each city, dynamically creating the full URL for each API request. For every city, the script makes a GET request to the API, retrieving key weather data such as latitude, longitude, maximum temperature, humidity, cloudiness, wind speed, country, and the date of the weather data. This information is stored in a list. The loop includes error handling to skip any cities that are not found. After processing all cities, a message confirms the completion of data retrieval.
+#### Creating DataFrame from Collected Weather Data
+```python
+# Convert the cities weather data into a Pandas DataFrame
+city_data_df = pd.DataFrame(city_data)
+
+# Show Record Count
+city_data_df.count()
+```
+This step involves converting the gathered weather data into a Pandas DataFrame for easier analysis and manipulation. By feeding the `city_data` list into `pd.DataFrame()`, each dictionary in the list becomes a row in the DataFrame. After creating the DataFrame, you can use `city_data_df.count()` to get a count of non-null values for each column.
