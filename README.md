@@ -183,3 +183,15 @@ city_data_df = pd.DataFrame(city_data)
 city_data_df.count()
 ```
 This step involves converting the gathered weather data into a Pandas DataFrame for easier analysis and manipulation. By feeding the `city_data` list into `pd.DataFrame()`, each dictionary in the list becomes a row in the DataFrame. After creating the DataFrame, you can use `city_data_df.count()` to get a count of non-null values for each column.
+#### Previewing Weather Data
+```python
+# Display sample data
+city_data_df.head()
+```
+Now, take a first look at your weather data by displaying the top five entries of your DataFrame. The `city_data_df.head()` function is used to preview the initial rows, giving you a quick snapshot of the dataset structure and the type of weather information collected for each city.
+#### Exporting Data to CSV 
+```python
+# Export the City_Data into a csv
+city_data_df.to_csv("output_data/cities.csv", index_label="City_ID")
+```
+This step involves saving your collected city weather data to a CSV file. Using `city_data_df.to_csv()`, the DataFrame is written to a file named `cities.csv` in the `output_data` directory. The `index_label` parameter is set to "City_ID", which adds a column in the CSV for the DataFrame's index, labeling it as 'City_ID'. This is useful for easy reference and future data processing tasks.
