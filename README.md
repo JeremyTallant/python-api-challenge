@@ -27,3 +27,23 @@ To fully utilize the functionalities of this project, you'll need to obtain API 
 By following these steps, you'll have the necessary API keys to successfully run and interact with the APIs used in this project. Remember to keep these keys confidential to protect your account and avoid unauthorized usage.
 ## Implementation
 In the implementation section, we'll delve into the specifics of how we utilized Python, various APIs, and geospatial analysis tools to methodically gather, process, and visualize weather data, culminating in the identification of ideal vacation destinations.
+### WeatherPy
+#### Environment and Libraries Initialization
+```python
+%config InlineBackend.figure_format = 'svg'
+
+# Dependencies and Setup
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+import requests
+import time
+from scipy.stats import linregress
+
+# Import the OpenWeatherMap API key
+from api_keys import weather_api_key
+
+# Import citipy to determine the cities based on latitude and longitude
+from citipy import citipy
+```
+Begin by configuring your Jupyter Notebook to display high-quality SVG format plots. Then, import essential libraries: `matplotlib.pyplot` for plotting graphs, `pandas` for data handling, `numpy` for numerical calculations, and `requests` for API calls. For statistical analysis, include `linregress` from `scipy.stats`. Lastly, import your OpenWeatherMap API key from an external file for secure API access and use `citipy` to identify cities based on latitude and longitude.
