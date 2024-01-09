@@ -47,3 +47,60 @@ from api_keys import weather_api_key
 from citipy import citipy
 ```
 Begin by configuring your Jupyter Notebook to display high-quality SVG format plots. Then, import essential libraries: `matplotlib.pyplot` for plotting graphs, `pandas` for data handling, `numpy` for numerical calculations, and `requests` for API calls. For statistical analysis, include `linregress` from `scipy.stats`. Lastly, import your OpenWeatherMap API key from an external file for secure API access and use `citipy` to identify cities based on latitude and longitude.
+#### Generating Random City Coordinates 
+```python
+# Empty list for holding the latitude and longitude combinations
+lat_lngs = []
+
+# Empty list for holding the cities names
+cities = []
+
+# Range of latitudes and longitudes
+lat_range = (-90, 90)
+lng_range = (-180, 180)
+
+# Create a set of random lat and lng combinations
+lats = np.random.uniform(lat_range[0], lat_range[1], size=1500)
+lngs = np.random.uniform(lng_range[0], lng_range[1], size=1500)
+lat_lngs = zip(lats, lngs)
+
+# Identify nearest city for each lat, lng combination
+for lat_lng in lat_lngs:
+    city = citipy.nearest_city(lat_lng[0], lat_lng[1]).city_name
+    
+    # If the city is unique, then add it to a our cities list
+    if city not in cities:
+        cities.append(city)
+
+# Print the city count to confirm sufficient count
+print(f"Number of cities in the list: {len(cities)}")
+```
+#### Generating Random City Coordinates
+```python
+# Empty list for holding the latitude and longitude combinations
+lat_lngs = []
+
+# Empty list for holding the cities names
+cities = []
+
+# Range of latitudes and longitudes
+lat_range = (-90, 90)
+lng_range = (-180, 180)
+
+# Create a set of random lat and lng combinations
+lats = np.random.uniform(lat_range[0], lat_range[1], size=1500)
+lngs = np.random.uniform(lng_range[0], lng_range[1], size=1500)
+lat_lngs = zip(lats, lngs)
+
+# Identify nearest city for each lat, lng combination
+for lat_lng in lat_lngs:
+    city = citipy.nearest_city(lat_lng[0], lat_lng[1]).city_name
+    
+    # If the city is unique, then add it to a our cities list
+    if city not in cities:
+        cities.append(city)
+
+# Print the city count to confirm sufficient count
+print(f"Number of cities in the list: {len(cities)}")
+```
+In this step, you'll start by preparing two empty lists: one for latitude-longitude pairs and another for city names. Define the range for latitudes and longitudes to span the entire globe. Generate 1500 random latitude and longitude values within these ranges. Then, iterate through these coordinates, using `citipy` to find the nearest city to each pair. Add each unique city to your city list, ensuring a diverse selection for your weather analysis. After completing the loop, check the number of cities gathered to ensure you have a robust dataset for the next stages of your project.
