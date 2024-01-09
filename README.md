@@ -195,3 +195,12 @@ Now, take a first look at your weather data by displaying the top five entries o
 city_data_df.to_csv("output_data/cities.csv", index_label="City_ID")
 ```
 This step involves saving your collected city weather data to a CSV file. Using `city_data_df.to_csv()`, the DataFrame is written to a file named `cities.csv` in the `output_data` directory. The `index_label` parameter is set to "City_ID", which adds a column in the CSV for the DataFrame's index, labeling it as 'City_ID'. This is useful for easy reference and future data processing tasks.
+#### Loading Data from CSV
+```python
+# Read saved data
+city_data_df = pd.read_csv("output_data/cities.csv", index_col="City_ID")
+
+# Display sample data
+city_data_df.head()
+```
+In this step, you'll reload the previously saved weather data from the CSV file into a Pandas DataFrame. Use `pd.read_csv()` to read the file, setting `index_col` to "City_ID" to use it as the DataFrame index. After loading, preview the first few rows with `city_data_df.head()` to confirm the data is loaded correctly and to familiarize yourself with its structure once again.
