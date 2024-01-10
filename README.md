@@ -46,7 +46,7 @@ from api_keys import weather_api_key
 # Import citipy to determine the cities based on latitude and longitude
 from citipy import citipy
 ```
-Begin by configuring your Jupyter Notebook to display high-quality SVG format plots. Then, import essential libraries: `matplotlib.pyplot` for plotting graphs, `pandas` for data handling, `numpy` for numerical calculations, and `requests` for API calls. For statistical analysis, include `linregress` from `scipy.stats`. Lastly, import your OpenWeatherMap API key from an external file for secure API access and use `citipy` to identify cities based on latitude and longitude.
+Begin by configuring the Jupyter Notebook to display high-quality SVG format plots. Then, import essential libraries: `matplotlib.pyplot` for plotting graphs, `pandas` for data handling, `numpy` for numerical calculations, and `requests` for API calls. For statistical analysis, include `linregress` from `scipy.stats`. Lastly, import a OpenWeatherMap API key from an external file for secure API access and use `citipy` to identify cities based on latitude and longitude.
 #### Generating Random City Coordinates
 ```python
 # Empty list for holding the latitude and longitude combinations
@@ -75,7 +75,7 @@ for lat_lng in lat_lngs:
 # Print the city count to confirm sufficient count
 print(f"Number of cities in the list: {len(cities)}")
 ```
-In this step, you'll start by preparing two empty lists: one for latitude-longitude pairs and another for city names. Define the range for latitudes and longitudes to span the entire globe. Generate 1500 random latitude and longitude values within these ranges. Then, iterate through these coordinates, using `citipy` to find the nearest city to each pair. Add each unique city to your city list, ensuring a diverse selection for your weather analysis. After completing the loop, check the number of cities gathered to ensure you have a robust dataset for the next stages of your project.
+In this step, we'll start by preparing two empty lists: one for latitude-longitude pairs and another for city names. Define the range for latitudes and longitudes to span the entire globe. Generate 1500 random latitude and longitude values within these ranges. Then, iterate through these coordinates, using `citipy` to find the nearest city to each pair. Add each unique city to the city list, ensuring a diverse selection for the weather analysis. After completing the loop, check the number of cities gathered to ensure we have a robust dataset for the next stages of the project.
 #### Weather Data Collection from API
 ```python
 # Set the API base URL
@@ -145,7 +145,7 @@ print("-----------------------------")
 print("Data Retrieval Complete      ")
 print("-----------------------------")
 ```
-Here, you'll set up an API request to gather weather data for each city in your list. Start by defining the base URL for the OpenWeatherMap API. You'll then loop through each city, dynamically creating the full URL for each API request. For every city, the script makes a GET request to the API, retrieving key weather data such as latitude, longitude, maximum temperature, humidity, cloudiness, wind speed, country, and the date of the weather data. This information is stored in a list. The loop includes error handling to skip any cities that are not found. After processing all cities, a message confirms the completion of data retrieval.
+Here, we'll set up an API request to gather weather data for each city in the list. Start by defining the base URL for the OpenWeatherMap API. We'll then loop through each city, dynamically creating the full URL for each API request. For every city, the script makes a GET request to the API, retrieving key weather data such as latitude, longitude, maximum temperature, humidity, cloudiness, wind speed, country, and the date of the weather data. This information is stored in a list. The loop includes error handling to skip any cities that are not found. After processing all cities, a message confirms the completion of data retrieval.
 #### Creating DataFrame from Collected Weather Data
 ```python
 # Convert the cities weather data into a Pandas DataFrame
@@ -154,19 +154,19 @@ city_data_df = pd.DataFrame(city_data)
 # Show Record Count
 city_data_df.count()
 ```
-This step involves converting the gathered weather data into a Pandas DataFrame for easier analysis and manipulation. By feeding the `city_data` list into `pd.DataFrame()`, each dictionary in the list becomes a row in the DataFrame. After creating the DataFrame, you can use `city_data_df.count()` to get a count of non-null values for each column.
+This step involves converting the gathered weather data into a Pandas DataFrame for easier analysis and manipulation. By feeding the `city_data` list into `pd.DataFrame()`, each dictionary in the list becomes a row in the DataFrame. After creating the DataFrame, we can use `city_data_df.count()` to get a count of non-null values for each column.
 #### Previewing Weather Data
 ```python
 # Display sample data
 city_data_df.head()
 ```
-Now, take a first look at your weather data by displaying the top five entries of your DataFrame. The `city_data_df.head()` function is used to preview the initial rows, giving you a quick snapshot of the dataset structure and the type of weather information collected for each city.
+Now, take a first look at the weather data by displaying the top five entries of your DataFrame. The `city_data_df.head()` function is used to preview the initial rows, giving us a quick snapshot of the dataset structure and the type of weather information collected for each city.
 #### Exporting Data to CSV 
 ```python
 # Export the City_Data into a csv
 city_data_df.to_csv("output_data/cities.csv", index_label="City_ID")
 ```
-This step involves saving your collected city weather data to a CSV file. Using `city_data_df.to_csv()`, the DataFrame is written to a file named `cities.csv` in the `output_data` directory. The `index_label` parameter is set to "City_ID", which adds a column in the CSV for the DataFrame's index, labeling it as 'City_ID'. This is useful for easy reference and future data processing tasks.
+This step involves saving our collected city weather data to a CSV file. Using `city_data_df.to_csv()`, the DataFrame is written to a file named `cities.csv` in the `output_data` directory. The `index_label` parameter is set to "City_ID", which adds a column in the CSV for the DataFrame's index, labeling it as 'City_ID'. This is useful for easy reference and future data processing tasks.
 #### Loading Data from CSV
 ```python
 # Read saved data
@@ -175,4 +175,4 @@ city_data_df = pd.read_csv("output_data/cities.csv", index_col="City_ID")
 # Display sample data
 city_data_df.head()
 ```
-In this step, you'll reload the previously saved weather data from the CSV file into a Pandas DataFrame. Use `pd.read_csv()` to read the file, setting `index_col` to "City_ID" to use it as the DataFrame index. After loading, preview the first few rows with `city_data_df.head()` to confirm the data is loaded correctly and to familiarize yourself with its structure once again.
+In this step, we'll reload the previously saved weather data from the CSV file into a Pandas DataFrame. Use `pd.read_csv()` to read the file, setting `index_col` to "City_ID" to use it as the DataFrame index. After loading, preview the first few rows with `city_data_df.head()` to confirm the data is loaded correctly and to familiarize ourselves with its structure once again.
