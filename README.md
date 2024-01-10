@@ -293,3 +293,15 @@ southern_hemi_df = city_data_df[city_data_df['Lat'] < 0]
 southern_hemi_df.head()
 ```
 Here, we're creating a DataFrame, `southern_hemi_df`, which includes only cities located in the Southern Hemisphere (latitude < 0). This subset allows for targeted analysis of weather patterns specific to this hemisphere. After filtering the data, a quick preview of the first few entries is displayed using `southern_hemi_df.head()` to confirm the dataset's accuracy and get a glimpse of the Southern Hemisphere cities.
+#### Linear Regression for Max Temp in the Northern Hemisphere 
+```python
+# Linear regression on Northern Hemisphere
+plot_linear_regression(northern_hemi_df['Lat'], northern_hemi_df['Max Temp'], 'Latitude', 'Max Temp', (10, -30))
+```
+We're applying the `plot_linear_regression` function to the Northern Hemisphere data, focusing on the relationship between latitude and maximum temperature. By passing the latitude and maximum temperature data from `northern_hemi_df`, along with appropriate axis labels and annotation coordinates, the function will generate a scatter plot with a linear regression line, helping to visualize and understand how temperature varies with latitude in the Northern Hemisphere.
+
+
+
+
+
+
