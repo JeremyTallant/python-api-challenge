@@ -433,3 +433,67 @@ hotel_df['Hotel Name'] = ""
 hotel_df
 ```
 We're creating a new DataFrame, `hotel_df`, using a subset of the `ideal_condition_df`. This DataFrame will store information relevant to hotel searches, including city names, country codes, geographic coordinates, and humidity levels. The data is copied to ensure any changes do not affect the original DataFrame. We also add an empty column labeled "Hotel Name" to `hotel_df`. This column is reserved for storing hotel names that we'll find using the Geoapify API. To confirm the structure and initial state of `hotel_df`, we display its first few rows.
+#### Conducting Hotel Search via API
+```python
+# Set parameters to search for a hotel
+radius = 10000
+params = {
+    'type': 'accommodation',
+    'limit': 1,
+    'apiKey': geoapify_key
+}
+
+# Print a message to follow up the hotel search
+print("Starting hotel search")
+
+# Iterate through the hotel_df DataFrame
+for index, row in hotel_df.iterrows():
+    # get latitude, longitude from the DataFrame
+    lat, lng = row['Lat'], row['Lng']
+    
+    # Add filter and bias parameters with the current city's latitude and longitude to the params dictionary
+    params["filter"] = f"circle:{lng},{lat},{radius}"
+    params["bias"] = f"proximity:{lng},{lat}"
+    
+    # Set base URL
+    base_url = "https://api.geoapify.com/v2/places"
+
+
+    # Make and API request using the params dictionaty
+    response = requests.get(base_url, params=params)
+    
+    # Convert the API response to JSON format
+    name_address = response.json()
+    
+    # Grab the first hotel from the results and store the name in the hotel_df DataFrame
+    try:
+        hotel_df.loc[index, "Hotel Name"] = name_address["features"][0]["properties"]["name"]
+    except (KeyError, IndexError):
+        # If no hotel is found, set the hotel name as "No hotel found".
+        hotel_df.loc[index, "Hotel Name"] = "No hotel found"
+        
+    # Log the search results
+    print(f"{hotel_df.loc[index, 'City']} - nearest hotel: {hotel_df.loc[index, 'Hotel Name']}")
+
+# Display sample data
+hotel_df
+```
+We begin a search for hotels near each city in the `hotel_df` DataFrame. First, we set the search radius to 10,000 meters and define the parameters for the Geoapify Places API, focusing on accommodations. As we iterate through each city in `hotel_df`, we use its latitude and longitude to update the search parameters. An API request is made for each city to find the nearest hotel. If a hotel is found, its name is stored in `hotel_df`; if not, we record "No hotel found". Each search's outcome is logged, providing feedback on the search process. After completing the search, we display the updated `hotel_df` to review the hotels found near each city.
+#### Mapping Hotels with Interactive Visualization
+```python
+%%capture --no-display
+
+# Configure the map plot
+map_plot = hotel_df.hvplot.points(
+    'Lng', 'Lat',
+    geo=True,
+    size='Humidity',
+    color='City',
+    hover_cols=['Hotel Name', 'Country'],
+    tiles='OSM',
+)
+
+# Display the map
+map_plot
+```
+We configure an interactive map using `hvplot` to visualize the hotels found near our ideal cities. Each point on the map corresponds to a city from `hotel_df`, positioned according to its longitude and latitude. The size of each point reflects the city's humidity level. Points are colored differently for each city for distinction, and upon hovering over these points, the map will display the hotel name and country. The base layer of the map utilizes OpenStreetMap ('OSM') tiles for geographical context. Once configured, the map is displayed within the notebook, offering an interactive way to explore the hotels relative to their city locations.
