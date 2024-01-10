@@ -315,9 +315,8 @@ plot_linear_regression(northern_hemi_df['Lat'], northern_hemi_df['Max Temp'], 'L
 We're applying the `plot_linear_regression` function to the Northern Hemisphere data, focusing on the relationship between latitude and maximum temperature. By passing the latitude and maximum temperature data from `northern_hemi_df`, along with appropriate axis labels and annotation coordinates, the function will generate a scatter plot with a linear regression line, helping to visualize and understand how temperature varies with latitude in the Northern Hemisphere.
 
 #### Linear Regression for Max Temp in the Southern Hemisphere 
-````python
-# Linear regression on Southern Hemisphere
 ```python
+# Linear regression on Southern Hemisphere
 plot_linear_regression(southern_hemi_df['Lat'], southern_hemi_df['Max Temp'], 'Latitude', 'Max Temp', (-50, 90))
 ```
 In this step, the `plot_linear_regression` function is utilized for the Southern Hemisphere data, analyzing the correlation between latitude and maximum temperature. The latitude and maximum temperature columns from `southern_hemi_df` are used as inputs, along with corresponding axis labels. The annotation coordinates are set to ensure clear visibility of the regression line equation, thereby facilitating an insightful understanding of temperature trends relative to latitude in the Southern Hemisphere.
