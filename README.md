@@ -305,3 +305,15 @@ We're applying the `plot_linear_regression` function to the Northern Hemisphere 
 plot_linear_regression(southern_hemi_df['Lat'], southern_hemi_df['Max Temp'], 'Latitude', 'Max Temp', (-50, 90))
 ```
 In this step, the `plot_linear_regression` function is utilized for the Southern Hemisphere data, analyzing the correlation between latitude and maximum temperature. The latitude and maximum temperature columns from `southern_hemi_df` are used as inputs, along with corresponding axis labels. The annotation coordinates are set to ensure clear visibility of the regression line equation, thereby facilitating an insightful understanding of temperature trends relative to latitude in the Southern Hemisphere.
+#### Linear Regression for Humidity in the North Hemisphere 
+```python
+# Northern Hemisphere
+plot_linear_regression(northern_hemi_df['Lat'], northern_hemi_df['Humidity'], 'Latitude', 'Humidity', (40, 20))
+```
+Here, we're employing the `plot_linear_regression` function to examine the relationship between latitude and humidity within the Northern Hemisphere. Latitude values and humidity levels from `northern_hemi_df` are input into the function, along with labels for the respective axes. An annotation is strategically placed to clearly present the regression line equation, aiding in the interpretation of how humidity changes with latitude in the Northern Hemisphere.
+#### Linear Regression for Humidity in the Southern Hemisphere 
+```python
+# Southern Hemisphere
+plot_linear_regression(southern_hemi_df['Lat'], southern_hemi_df['Humidity'], 'Latitude', 'Humidity', (-25, 20))
+```
+In this analysis, we use the `plot_linear_regression` function to explore the link between latitude and humidity in the Southern Hemisphere. By inputting latitude and humidity data from `southern_hemi_df` into the function, along with appropriate axis labels, the function will generate a scatter plot with a regression line. The specified annotation coordinates help to display the regression equation, offering insights into how humidity varies with latitude in this hemisphere.
