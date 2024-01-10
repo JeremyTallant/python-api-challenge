@@ -404,3 +404,20 @@ map_plot = city_data_df.hvplot.points(
 map_plot
 ```
 In this segment, we configure an interactive map plot using the `hvplot` library. The plot will display points for each city in the `city_data_df` DataFrame, with their positions based on longitude ('Lng') and latitude ('Lat'). The size of each point is determined by the 'Humidity' value, and different colors are assigned to each city for distinction, using the 'Category20' colormap. OpenStreetMap ('OSM') tiles are used as the base layer for the map. The map's dimensions are set to 700x500 pixels. Once configured, the map is displayed within the notebook, showcasing a geospatial representation of the cities with their respective humidity levels.
+#### Filtering Cities Based on Ideal Conditions
+```python
+# Narrow down cities that fit criteria and drop any results with null values
+ideal_condition_df = city_data_df[
+    (city_data_df['Max Temp'] > 60) &
+    (city_data_df['Max Temp'] < 90) &
+    (city_data_df['Wind Speed'] < 8) &
+    (city_data_df['Cloudiness'] == 0)
+]
+
+# Drop any rows with null values and drop the original index
+ideal_condition_df = ideal_condition_df.dropna().reset_index(drop=True)
+
+# Display sample data
+ideal_condition_df
+```
+In this step, we refine our dataset to focus on cities with ideal weather conditions. We filter `city_data_df` for cities with maximum temperatures between 60 and 90 degrees Fahrenheit, wind speeds less than 8, and zero cloudiness. After applying these filters, we drop any rows with null values and reset the DataFrame's index, removing the old index. The resulting DataFrame, `ideal_condition_df`, contains cities meeting these specific weather criteria. A preview of the filtered data is displayed to verify the successful application of the conditions and to view the characteristics of these ideal cities.
