@@ -176,3 +176,22 @@ city_data_df = pd.read_csv("output_data/cities.csv", index_col="City_ID")
 city_data_df.head()
 ```
 In this step, we'll reload the previously saved weather data from the CSV file into a Pandas DataFrame. Use `pd.read_csv()` to read the file, setting `index_col` to "City_ID" to use it as the DataFrame index. After loading, preview the first few rows with `city_data_df.head()` to confirm the data is loaded correctly and to familiarize ourselves with its structure once again.
+#### Latitude vs. Temperature Scatter Plot
+```python
+# Build scatter plot for latitude vs. temperature
+plt.scatter(city_data_df['Lat'], city_data_df['Max Temp'], edgecolors='black', marker='o', alpha=0.8)
+
+# Incorporate the other graph properties
+plt.title('City Latitude vs. Temperature (%s)' % time.strftime('%x'))
+plt.ylabel('Max Temperature (F)')
+plt.xlabel('Latitude')
+plt.grid(True)
+
+# Save the figure
+plt.savefig("output_data/Fig1.png")
+
+# Show plot
+plt.show()
+```
+We're now creating a scatter plot that compares city latitude to their maximum temperature. With black-edged, semi-transparent markers, the plot is both clear and informative. It includes a title reflecting the current date, and labels for both axes, along with a grid for easier interpretation. After configuring these properties, we save the plot as 'Fig1.png' in the 'output_data' directory and then display it on screen.
+#### Latin
