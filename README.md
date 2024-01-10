@@ -329,3 +329,10 @@ For this step, we're applying the `plot_linear_regression` function to study the
 plot_linear_regression(southern_hemi_df['Lat'], southern_hemi_df['Cloudiness'], 'Latitude', 'Cloudiness', (-25, 25))
 ```
 In this analysis, we're using the `plot_linear_regression` function to investigate the relationship between latitude and cloudiness in the Southern Hemisphere. The function is provided with latitude and cloudiness data from `southern_hemi_df`, as well as labels for these axes. By setting the annotation coordinates, the regression line equation is displayed clearly on the plot, offering insights into how cloudiness varies with latitude in the Southern Hemisphere.
+#### Linear Regression for Wind Speed in the Northern Hemisphere 
+```python
+# Northern Hemisphere
+plot_linear_regression(northern_hemi_df['Lat'], northern_hemi_df['Wind Speed'], 'Latitude', 'Wind Speed', (0, 30))
+```
+Here, we employ the `plot_linear_regression` function to analyze the correlation between latitude and wind speed in the Northern Hemisphere. The function uses latitude and wind speed data from `northern_hemi_df` and includes axis labels for clarity. The annotation coordinates are chosen to ensure the regression equation is prominently displayed, aiding in the interpretation of wind speed patterns relative to latitude in the Northern Hemisphere.
+
