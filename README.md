@@ -47,6 +47,7 @@ from api_keys import weather_api_key
 from citipy import citipy
 ```
 Begin by configuring the Jupyter Notebook to display high-quality SVG format plots. Then, import essential libraries: `matplotlib.pyplot` for plotting graphs, `pandas` for data handling, `numpy` for numerical calculations, and `requests` for API calls. For statistical analysis, include `linregress` from `scipy.stats`. Lastly, import a OpenWeatherMap API key from an external file for secure API access and use `citipy` to identify cities based on latitude and longitude.
+
 #### Generating Random City Coordinates
 ```python
 # Empty list for holding the latitude and longitude combinations
@@ -76,6 +77,7 @@ for lat_lng in lat_lngs:
 print(f"Number of cities in the list: {len(cities)}")
 ```
 In this step, we'll start by preparing two empty lists: one for latitude-longitude pairs and another for city names. Define the range for latitudes and longitudes to span the entire globe. Generate 1500 random latitude and longitude values within these ranges. Then, iterate through these coordinates, using `citipy` to find the nearest city to each pair. Add each unique city to the city list, ensuring a diverse selection for the weather analysis. After completing the loop, check the number of cities gathered to ensure we have a robust dataset for the next stages of the project.
+
 #### Weather Data Collection from API
 ```python
 # Set the API base URL
@@ -146,6 +148,7 @@ print("Data Retrieval Complete      ")
 print("-----------------------------")
 ```
 Here, we'll set up an API request to gather weather data for each city in the list. Start by defining the base URL for the OpenWeatherMap API. We'll then loop through each city, dynamically creating the full URL for each API request. For every city, the script makes a GET request to the API, retrieving key weather data such as latitude, longitude, maximum temperature, humidity, cloudiness, wind speed, country, and the date of the weather data. This information is stored in a list. The loop includes error handling to skip any cities that are not found. After processing all cities, a message confirms the completion of data retrieval.
+
 #### Creating DataFrame from Collected Weather Data
 ```python
 # Convert the cities weather data into a Pandas DataFrame
@@ -155,18 +158,21 @@ city_data_df = pd.DataFrame(city_data)
 city_data_df.count()
 ```
 This step involves converting the gathered weather data into a Pandas DataFrame for easier analysis and manipulation. By feeding the `city_data` list into `pd.DataFrame()`, each dictionary in the list becomes a row in the DataFrame. After creating the DataFrame, we can use `city_data_df.count()` to get a count of non-null values for each column.
+
 #### Previewing Weather Data
 ```python
 # Display sample data
 city_data_df.head()
 ```
 Now, take a first look at the weather data by displaying the top five entries of your DataFrame. The `city_data_df.head()` function is used to preview the initial rows, giving us a quick snapshot of the dataset structure and the type of weather information collected for each city.
+
 #### Exporting Data to CSV 
 ```python
 # Export the City_Data into a csv
 city_data_df.to_csv("output_data/cities.csv", index_label="City_ID")
 ```
 This step involves saving our collected city weather data to a CSV file. Using `city_data_df.to_csv()`, the DataFrame is written to a file named `cities.csv` in the `output_data` directory. The `index_label` parameter is set to "City_ID", which adds a column in the CSV for the DataFrame's index, labeling it as 'City_ID'. This is useful for easy reference and future data processing tasks.
+
 #### Loading Data from CSV
 ```python
 # Read saved data
@@ -176,6 +182,7 @@ city_data_df = pd.read_csv("output_data/cities.csv", index_col="City_ID")
 city_data_df.head()
 ```
 In this step, we'll reload the previously saved weather data from the CSV file into a Pandas DataFrame. Use `pd.read_csv()` to read the file, setting `index_col` to "City_ID" to use it as the DataFrame index. After loading, preview the first few rows with `city_data_df.head()` to confirm the data is loaded correctly and to familiarize ourselves with its structure once again.
+
 #### Latitude vs. Temperature Scatter Plot
 ```python
 # Build scatter plot for latitude vs. temperature
@@ -194,6 +201,7 @@ plt.savefig("output_data/Fig1.png")
 plt.show()
 ```
 We're now creating a scatter plot that compares city latitude to their maximum temperature. With black-edged, semi-transparent markers, the plot is both clear and informative. It includes a title reflecting the current date, and labels for both axes, along with a grid for easier interpretation. After configuring these properties, we save the plot as 'Fig1.png' in the 'output_data' directory and then display it on screen.
+
 #### Latitude vs. Humidity Scatter Plot
 ```python
 # Build the scatter plots for latitude vs. humidity
@@ -212,6 +220,7 @@ plt.savefig("output_data/Fig2.png")
 plt.show()
 ```
 We're constructing a scatter plot to illustrate the relationship between city latitude and humidity. This visualization features black-edged, semi-transparent markers for clarity. The plot is enhanced with a current date title and appropriately labeled axes. After fine-tuning these elements, we save the plot as 'Fig2.png' in the 'output_data' folder and then display it for review.
+
 #### Latitude vs. Cloudiness Scatter Plot
 ```python
 # Build the scatter plots for latitude vs. cloudiness
@@ -230,6 +239,7 @@ plt.savefig("output_data/Fig3.png")
 plt.show()
 ```
 In this step, we're creating a scatter plot to examine the correlation between city latitude and cloudiness levels. The plot features black-edged markers with a degree of transparency for easy visualization. It includes a title indicating the current date, along with axes labeled for latitude and cloudiness percentage. Once the plot is tailored with these attributes, we save it as 'Fig3.png' in the 'output_data' directory and then display it on the screen.
+
 #### Latitude vs. Wind Speed Scatter Plot
 ```python
 # Build the scatter plots for latitude vs. wind speed
@@ -248,6 +258,7 @@ plt.savefig("output_data/Fig4.png")
 plt.show()
 ```
 We're now creating a scatter plot that maps city latitude against wind speed. The plot is designed with black-edged, semi-transparent markers for easy reading. It's enhanced with a title displaying the current date and axes labeled for latitude and wind speed (in meters per second). After setting these features, we save the plot as 'Fig4.png' in the 'output_data' folder and display it for visualization.
+
 #### Defining a Linear Regression Plot Function
 ```python
 # Define a function to create Linear Regression plots
@@ -275,6 +286,7 @@ def plot_linear_regression(x_values, y_values, x_label, y_label, annotation_coor
     plt.show()
 ```
 We've defined a function, `plot_linear_regression`, to create and display scatter plots with linear regression lines. This function takes in x and y values, labels for these axes, and coordinates for annotating the regression equation. Inside the function, we calculate the linear regression parameters, plot the data points, draw the regression line, and annotate the plot with the regression equation. This utility makes it easy to visualize relationships between different variables and understand their correlation.
+
 #### Extracting Northern Hemisphere Data
 ```python
 # Create a DataFrame with the Northern Hemisphere data (Latitude >= 0)
@@ -284,6 +296,7 @@ northern_hemi_df = city_data_df[city_data_df['Lat'] >= 0]
 northern_hemi_df.head()
 ```
 We're filtering the original dataset to create a new DataFrame, `northern_hemi_df`, containing only cities from the Northern Hemisphere (latitude >= 0). This focused dataset will be used for specific analyses related to the Northern Hemisphere. After the data is filtered, we preview the first few rows using `northern_hemi_df.head()` to verify the selection and to get an initial look at the Northern Hemisphere data.
+
 #### Extracting Southern Hemisphere Data
 ```python
 # Create a DataFrame with the Southern Hemisphere data (Latitude < 0)
@@ -293,48 +306,56 @@ southern_hemi_df = city_data_df[city_data_df['Lat'] < 0]
 southern_hemi_df.head()
 ```
 Here, we're creating a DataFrame, `southern_hemi_df`, which includes only cities located in the Southern Hemisphere (latitude < 0). This subset allows for targeted analysis of weather patterns specific to this hemisphere. After filtering the data, a quick preview of the first few entries is displayed using `southern_hemi_df.head()` to confirm the dataset's accuracy and get a glimpse of the Southern Hemisphere cities.
+
 #### Linear Regression for Max Temp in the Northern Hemisphere 
 ```python
 # Linear regression on Northern Hemisphere
 plot_linear_regression(northern_hemi_df['Lat'], northern_hemi_df['Max Temp'], 'Latitude', 'Max Temp', (10, -30))
 ```
 We're applying the `plot_linear_regression` function to the Northern Hemisphere data, focusing on the relationship between latitude and maximum temperature. By passing the latitude and maximum temperature data from `northern_hemi_df`, along with appropriate axis labels and annotation coordinates, the function will generate a scatter plot with a linear regression line, helping to visualize and understand how temperature varies with latitude in the Northern Hemisphere.
+
 #### Linear Regression for Max Temp in the Southern Hemisphere 
 ````python
 # Linear regression on Southern Hemisphere
 plot_linear_regression(southern_hemi_df['Lat'], southern_hemi_df['Max Temp'], 'Latitude', 'Max Temp', (-50, 90))
 ```
 In this step, the `plot_linear_regression` function is utilized for the Southern Hemisphere data, analyzing the correlation between latitude and maximum temperature. The latitude and maximum temperature columns from `southern_hemi_df` are used as inputs, along with corresponding axis labels. The annotation coordinates are set to ensure clear visibility of the regression line equation, thereby facilitating an insightful understanding of temperature trends relative to latitude in the Southern Hemisphere.
+
 #### Linear Regression for Humidity in the North Hemisphere 
 ```python
 # Northern Hemisphere
 plot_linear_regression(northern_hemi_df['Lat'], northern_hemi_df['Humidity'], 'Latitude', 'Humidity', (40, 20))
 ```
 Here, we're employing the `plot_linear_regression` function to examine the relationship between latitude and humidity within the Northern Hemisphere. Latitude values and humidity levels from `northern_hemi_df` are input into the function, along with labels for the respective axes. An annotation is strategically placed to clearly present the regression line equation, aiding in the interpretation of how humidity changes with latitude in the Northern Hemisphere.
+
 #### Linear Regression for Humidity in the Southern Hemisphere 
 ```python
 # Southern Hemisphere
 plot_linear_regression(southern_hemi_df['Lat'], southern_hemi_df['Humidity'], 'Latitude', 'Humidity', (-25, 20))
 ```
 In this analysis, we use the `plot_linear_regression` function to explore the link between latitude and humidity in the Southern Hemisphere. By inputting latitude and humidity data from `southern_hemi_df` into the function, along with appropriate axis labels, the function will generate a scatter plot with a regression line. The specified annotation coordinates help to display the regression equation, offering insights into how humidity varies with latitude in this hemisphere.
+
 #### Linear Regression for Cloudiness in the Northern Hemisphere 
 ```python
 # Northern Hemisphere
 plot_linear_regression(northern_hemi_df['Lat'], northern_hemi_df['Cloudiness'], 'Latitude', 'Cloudiness', (50, 10))
 ```
 For this step, we're applying the `plot_linear_regression` function to study the relationship between latitude and cloudiness in the Northern Hemisphere. The function takes the latitude and cloudiness data from `northern_hemi_df`, along with corresponding axis labels. The selected annotation coordinates ensure the regression equation is clearly visible on the scatter plot. This visualization aids in understanding how cloudiness trends correlate with latitude across the Northern Hemisphere.
+
 #### Linear Regression for Cloudiness in the Southern Hemisphere 
 ```python
 # Southern Hemisphere
 plot_linear_regression(southern_hemi_df['Lat'], southern_hemi_df['Cloudiness'], 'Latitude', 'Cloudiness', (-25, 25))
 ```
 In this analysis, we're using the `plot_linear_regression` function to investigate the relationship between latitude and cloudiness in the Southern Hemisphere. The function is provided with latitude and cloudiness data from `southern_hemi_df`, as well as labels for these axes. By setting the annotation coordinates, the regression line equation is displayed clearly on the plot, offering insights into how cloudiness varies with latitude in the Southern Hemisphere.
+
 #### Linear Regression for Wind Speed in the Northern Hemisphere 
 ```python
 # Northern Hemisphere
 plot_linear_regression(northern_hemi_df['Lat'], northern_hemi_df['Wind Speed'], 'Latitude', 'Wind Speed', (0, 30))
 ```
 Here, we employ the `plot_linear_regression` function to analyze the correlation between latitude and wind speed in the Northern Hemisphere. The function uses latitude and wind speed data from `northern_hemi_df` and includes axis labels for clarity. The annotation coordinates are chosen to ensure the regression equation is prominently displayed, aiding in the interpretation of wind speed patterns relative to latitude in the Northern Hemisphere.
+
 #### Linear Regression for Wind speed in the Southern Hemisphere 
 ```python
 # Sourthern Hemisphere
