@@ -317,3 +317,10 @@ Here, we're employing the `plot_linear_regression` function to examine the relat
 plot_linear_regression(southern_hemi_df['Lat'], southern_hemi_df['Humidity'], 'Latitude', 'Humidity', (-25, 20))
 ```
 In this analysis, we use the `plot_linear_regression` function to explore the link between latitude and humidity in the Southern Hemisphere. By inputting latitude and humidity data from `southern_hemi_df` into the function, along with appropriate axis labels, the function will generate a scatter plot with a regression line. The specified annotation coordinates help to display the regression equation, offering insights into how humidity varies with latitude in this hemisphere.
+#### Linear Regression for Cloudiness in the Northern Hemisphere 
+```python
+# Northern Hemisphere
+plot_linear_regression(northern_hemi_df['Lat'], northern_hemi_df['Cloudiness'], 'Latitude', 'Cloudiness', (50, 10))
+```
+For this step, we're applying the `plot_linear_regression` function to study the relationship between latitude and cloudiness in the Northern Hemisphere. The function takes the latitude and cloudiness data from `northern_hemi_df`, along with corresponding axis labels. The selected annotation coordinates ensure the regression equation is clearly visible on the scatter plot. This visualization aids in understanding how cloudiness trends correlate with latitude across the Northern Hemisphere.
+
