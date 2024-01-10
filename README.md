@@ -375,4 +375,32 @@ import requests
 from api_keys import geoapify_key
 ```
 In this phase, we're preparing for map visualization and API interactions. We import `hvplot.pandas` for advanced interactive visualizations, `pandas` for data handling, and `requests` for making HTTP requests. Additionally, the Geoapify API key is imported from an external file, ensuring secure access for geolocation services. This setup is essential for subsequent steps involving geospatial data analysis and map-based visualizations.
+#### Loading Weather Data from CSV
+```python
+# Load the CSV file created in Part 1 into a Pandas DataFrame
+city_data_df = pd.read_csv("output_data/cities.csv")
 
+# Display sample data
+city_data_df.head()
+```
+Here, we're reloading the weather data saved earlier into a Pandas DataFrame for further analysis. The `pd.read_csv` function reads the 'cities.csv' file from the 'output_data' directory, effectively transforming the CSV data back into a DataFrame. A quick preview of the first few rows is displayed using `city_data_df.head()` to confirm the successful loading of data and to get an initial glimpse of the dataset.
+#### Configuring and Displaying Interactive Map Plot
+```python
+%%capture --no-display
+
+# Configure the map plot
+map_plot = city_data_df.hvplot.points(
+    'Lng', 'Lat',
+    geo=True,
+    size='Humidity',
+    color='City',
+    cmap='Category20',
+    tiles='OSM',
+    frame_width=700,
+    frame_height=500
+)
+
+# Display the map
+map_plot
+```
+In this segment, we configure an interactive map plot using the `hvplot` library. The plot will display points for each city in the `city_data_df` DataFrame, with their positions based on longitude ('Lng') and latitude ('Lat'). The size of each point is determined by the 'Humidity' value, and different colors are assigned to each city for distinction, using the 'Category20' colormap. OpenStreetMap ('OSM') tiles are used as the base layer for the map. The map's dimensions are set to 700x500 pixels. Once configured, the map is displayed within the notebook, showcasing a geospatial representation of the cities with their respective humidity levels.
