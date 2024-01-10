@@ -194,4 +194,40 @@ plt.savefig("output_data/Fig1.png")
 plt.show()
 ```
 We're now creating a scatter plot that compares city latitude to their maximum temperature. With black-edged, semi-transparent markers, the plot is both clear and informative. It includes a title reflecting the current date, and labels for both axes, along with a grid for easier interpretation. After configuring these properties, we save the plot as 'Fig1.png' in the 'output_data' directory and then display it on screen.
-#### Latin
+#### Latitude vs. Humidity Scatter Plot
+```python
+# Build the scatter plots for latitude vs. humidity
+plt.scatter(city_data_df['Lat'], city_data_df['Humidity'], edgecolors='black', marker='o', alpha=0.8)
+
+# Incorporate the other graph properties
+plt.title('City Latitude vs. Humidity (%s)' % time.strftime('%x'))
+plt.ylabel('Humditity (%)')
+plt.xlabel('Latitude')
+plt.grid(True)
+
+# Save the figure
+plt.savefig("output_data/Fig2.png")
+
+# Show plot
+plt.show()
+```
+We're constructing a scatter plot to illustrate the relationship between city latitude and humidity. This visualization features black-edged, semi-transparent markers for clarity. The plot is enhanced with a current date title and appropriately labeled axes. After fine-tuning these elements, we save the plot as 'Fig2.png' in the 'output_data' folder and then display it for review.
+#### Latitude vs. Cloudiness Scatter Plot
+```python
+# Build the scatter plots for latitude vs. cloudiness
+plt.scatter(city_data_df['Lat'], city_data_df['Cloudiness'], edgecolors='black', marker='o', alpha=0.8)
+
+# Incorporate the other graph properties
+plt.title('City Latitude vs. Cloudiness (%s)' % time.strftime('%x'))
+plt.ylabel('Cloudiness (%)')
+plt.xlabel('Latitude')
+plt.grid(True)
+
+# Save the figure
+plt.savefig("output_data/Fig3.png")
+
+# Show plot
+plt.show()
+```
+In this step, we're creating a scatter plot to examine the correlation between city latitude and cloudiness levels. The plot features black-edged markers with a degree of transparency for easy visualization. It includes a title indicating the current date, along with axes labeled for latitude and cloudiness percentage. Once the plot is tailored with these attributes, we save it as 'Fig3.png' in the 'output_data' directory and then display it on the screen.
+
