@@ -362,3 +362,17 @@ Here, we employ the `plot_linear_regression` function to analyze the correlation
 plot_linear_regression(southern_hemi_df['Lat'], southern_hemi_df['Wind Speed'], 'Latitude', 'Wind Speed', (-25, 25))
 ```
 In this step, we're utilizing the `plot_linear_regression` function to explore the relationship between latitude and wind speed in the Southern Hemisphere. The function processes latitude and wind speed data from `southern_hemi_df`, complemented by relevant axis labels. The chosen annotation coordinates help in clearly showcasing the regression line equation on the plot, providing insights into how wind speed varies with latitude across the Southern Hemisphere.
+
+### VacationPy
+#### Setting Up for Map Visualization and API Requests
+```python
+# Dependencies and Setup
+import hvplot.pandas
+import pandas as pd
+import requests
+
+# Import API key
+from api_keys import geoapify_key
+```
+In this phase, we're preparing for map visualization and API interactions. We import `hvplot.pandas` for advanced interactive visualizations, `pandas` for data handling, and `requests` for making HTTP requests. Additionally, the Geoapify API key is imported from an external file, ensuring secure access for geolocation services. This setup is essential for subsequent steps involving geospatial data analysis and map-based visualizations.
+
