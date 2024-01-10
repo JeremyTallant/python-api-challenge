@@ -230,4 +230,57 @@ plt.savefig("output_data/Fig3.png")
 plt.show()
 ```
 In this step, we're creating a scatter plot to examine the correlation between city latitude and cloudiness levels. The plot features black-edged markers with a degree of transparency for easy visualization. It includes a title indicating the current date, along with axes labeled for latitude and cloudiness percentage. Once the plot is tailored with these attributes, we save it as 'Fig3.png' in the 'output_data' directory and then display it on the screen.
+#### Latitude vs. Wind Speed Scatter Plot
+```python
+# Build the scatter plots for latitude vs. wind speed
+plt.scatter(city_data_df['Lat'], city_data_df['Wind Speed'], edgecolors='black', marker='o', alpha=0.8)
 
+# Incorporate the other graph properties
+plt.title('City Latitude vs. Wind Speed (%s)' % time.strftime('%x'))
+plt.ylabel('Wind Speed (m/s)')
+plt.xlabel('Latitude')
+plt.grid(True)
+
+# Save the figure
+plt.savefig("output_data/Fig4.png")
+
+# Show plot
+plt.show()
+```
+We're now creating a scatter plot that maps city latitude against wind speed. The plot is designed with black-edged, semi-transparent markers for easy reading. It's enhanced with a title displaying the current date and axes labeled for latitude and wind speed (in meters per second). After setting these features, we save the plot as 'Fig4.png' in the 'output_data' folder and display it for visualization.
+#### Defining a Linear Regression Plot Function
+```python
+# Define a function to create Linear Regression plots
+def plot_linear_regression(x_values, y_values, x_label, y_label, annotation_coordinates):
+    (slope, intercept, rvalue, pvalue, stderr) = linregress(x_values, y_values)
+    print(f"The r-value is: {rvalue**2}")
+    
+    # Calculate the regression line "y values" from the slope and intercept
+    regress_values = x_values * slope + intercept
+    
+    # Create a scatter plot of the x and y values
+    plt.scatter(x_values, y_values)
+    
+    # Plot the regression line with the x-values and the calculated y-values
+    plt.plot(x_values, regress_values, "r-")
+    
+    # Annotate the plot with the linear equation
+    line_eq = f"y = {slope:.2f}x + {intercept:.2f}"
+    plt.annotate(line_eq, annotation_coordinates, fontsize=15, color="red")
+    
+    # Set the x and y labels
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    
+    plt.show()
+```
+We've defined a function, `plot_linear_regression`, to create and display scatter plots with linear regression lines. This function takes in x and y values, labels for these axes, and coordinates for annotating the regression equation. Inside the function, we calculate the linear regression parameters, plot the data points, draw the regression line, and annotate the plot with the regression equation. This utility makes it easy to visualize relationships between different variables and understand their correlation.
+#### Extracting Northern Hemisphere Data
+```python
+# Create a DataFrame with the Northern Hemisphere data (Latitude >= 0)
+northern_hemi_df = city_data_df[city_data_df['Lat'] >= 0]
+
+# Display sample data
+northern_hemi_df.head()
+```
+We're filtering the original dataset to create a new DataFrame, `northern_hemi_df`, containing only cities from the Northern Hemisphere (latitude >= 0). This focused dataset will be used for specific analyses related to the Northern Hemisphere. After the data is filtered, we preview the first few rows using `northern_hemi_df.head()` to verify the selection and to get an initial look at the Northern Hemisphere data.
