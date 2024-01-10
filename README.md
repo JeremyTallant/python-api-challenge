@@ -335,4 +335,9 @@ In this analysis, we're using the `plot_linear_regression` function to investiga
 plot_linear_regression(northern_hemi_df['Lat'], northern_hemi_df['Wind Speed'], 'Latitude', 'Wind Speed', (0, 30))
 ```
 Here, we employ the `plot_linear_regression` function to analyze the correlation between latitude and wind speed in the Northern Hemisphere. The function uses latitude and wind speed data from `northern_hemi_df` and includes axis labels for clarity. The annotation coordinates are chosen to ensure the regression equation is prominently displayed, aiding in the interpretation of wind speed patterns relative to latitude in the Northern Hemisphere.
-
+#### Linear Regression for Wind speed in the Southern Hemisphere 
+```python
+# Sourthern Hemisphere
+plot_linear_regression(southern_hemi_df['Lat'], southern_hemi_df['Wind Speed'], 'Latitude', 'Wind Speed', (-25, 25))
+```
+In this step, we're utilizing the `plot_linear_regression` function to explore the relationship between latitude and wind speed in the Southern Hemisphere. The function processes latitude and wind speed data from `southern_hemi_df`, complemented by relevant axis labels. The chosen annotation coordinates help in clearly showcasing the regression line equation on the plot, providing insights into how wind speed varies with latitude across the Southern Hemisphere.
