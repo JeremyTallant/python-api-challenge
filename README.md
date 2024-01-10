@@ -421,3 +421,15 @@ ideal_condition_df = ideal_condition_df.dropna().reset_index(drop=True)
 ideal_condition_df
 ```
 In this step, we refine our dataset to focus on cities with ideal weather conditions. We filter `city_data_df` for cities with maximum temperatures between 60 and 90 degrees Fahrenheit, wind speeds less than 8, and zero cloudiness. After applying these filters, we drop any rows with null values and reset the DataFrame's index, removing the old index. The resulting DataFrame, `ideal_condition_df`, contains cities meeting these specific weather criteria. A preview of the filtered data is displayed to verify the successful application of the conditions and to view the characteristics of these ideal cities.
+#### Preparing Hotel Information DataFrame
+```python
+# Use the Pandas copy function to create DataFrame called hotel_df to store the city, country, coordinates, and humidity
+hotel_df = ideal_condition_df[['City', 'Country', 'Lat', 'Lng', 'Humidity']].copy()
+
+# Add an empty column, "Hotel Name," to the DataFrame so you can store the hotel found using the Geoapify API
+hotel_df['Hotel Name'] = ""
+
+# Display sample data
+hotel_df
+```
+We're creating a new DataFrame, `hotel_df`, using a subset of the `ideal_condition_df`. This DataFrame will store information relevant to hotel searches, including city names, country codes, geographic coordinates, and humidity levels. The data is copied to ensure any changes do not affect the original DataFrame. We also add an empty column labeled "Hotel Name" to `hotel_df`. This column is reserved for storing hotel names that we'll find using the Geoapify API. To confirm the structure and initial state of `hotel_df`, we display its first few rows.
