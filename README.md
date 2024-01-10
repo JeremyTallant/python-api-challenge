@@ -284,3 +284,12 @@ northern_hemi_df = city_data_df[city_data_df['Lat'] >= 0]
 northern_hemi_df.head()
 ```
 We're filtering the original dataset to create a new DataFrame, `northern_hemi_df`, containing only cities from the Northern Hemisphere (latitude >= 0). This focused dataset will be used for specific analyses related to the Northern Hemisphere. After the data is filtered, we preview the first few rows using `northern_hemi_df.head()` to verify the selection and to get an initial look at the Northern Hemisphere data.
+#### Extracting Southern Hemisphere Data
+```python
+# Create a DataFrame with the Southern Hemisphere data (Latitude < 0)
+southern_hemi_df = city_data_df[city_data_df['Lat'] < 0]
+
+# Display sample data
+southern_hemi_df.head()
+```
+Here, we're creating a DataFrame, `southern_hemi_df`, which includes only cities located in the Southern Hemisphere (latitude < 0). This subset allows for targeted analysis of weather patterns specific to this hemisphere. After filtering the data, a quick preview of the first few entries is displayed using `southern_hemi_df.head()` to confirm the dataset's accuracy and get a glimpse of the Southern Hemisphere cities.
