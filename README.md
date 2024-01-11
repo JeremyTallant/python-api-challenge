@@ -500,7 +500,7 @@ We configure an interactive map using `hvplot` to visualize the hotels found nea
 ## Insights
 In the insights section, we delve into the patterns and trends revealed by our data analysis. By examining the relationships between geographical location and various weather parameters, we uncover intriguing insights about global weather trends. Additionally, the successful identification of hotels in ideal vacation spots offers a practical application of our findings. Here, we discuss these discoveries, providing a deeper understanding of our project's impact and the potential for future explorations.
 ### WeatherPy
-
+#### Latitude vs. Temperature Plot
 ![image](output_data/Fig1.png)
 
 The scatter plot visualizes the correlation between city latitudes and their maximum temperatures on January 7th, 2024, exhibiting a distinctive pattern where temperatures peak near the equator and diminish towards the poles. This trend is consistent with established climatic behaviors, where equatorial cities experience higher temperatures due to the direct incidence of sunlight, while cities at higher latitudes endure colder conditions. The data suggests a smooth gradient of temperature change relative to latitude, which could be indicative of the seasonal impact on global weather patterns, especially given the date in January, typically winter for the northern hemisphere and summer for the southern hemisphere.
