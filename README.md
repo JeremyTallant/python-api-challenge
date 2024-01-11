@@ -519,3 +519,8 @@ The scatter plot illustrates the distribution of cloudiness percentage versus ci
 ![image](output_data/Fig4.png)
 
 The scatter plot correlates city latitude with wind speed on January 7th, 2024. Unlike temperature, the relationship between latitude and wind speed does not exhibit a clear linear or predictable pattern. The data points are distributed throughout the range of wind speeds, from calm to over 40 meters per second, across all latitudes. Notably, there are several outliers indicating exceptionally high wind speeds at various latitudes. The absence of a strong latitudinal trend may suggest that local geographical features and atmospheric conditions are more influential on wind speed than latitude alone. This implies that regional factors, such as the presence of mountain ranges, bodies of water, or urban landscapes, as well as transient weather phenomena, play a significant role in determining wind conditions at different locations.
+
+#### Linear Regression for Max Temp in the Northern Hemisphere 
+![image](images/plot1.svg)
+
+The analysis of Northern Hemisphere data reveals a strong negative correlation between latitude and maximum temperature, with an r-value of 0.72 indicating that approximately 72% of the variance in temperature can be explained by latitude alone. The linear regression model, represented by the equation y = -1.39x + 92.09, suggests that for every degree increase in latitude, there is a corresponding decrease of 1.39 degrees in maximum temperature. This pattern underscores the significant impact of latitude on temperature in the Northern Hemisphere, although other factors undoubtedly play a role in regional temperature variations.
