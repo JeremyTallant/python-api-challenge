@@ -536,4 +536,14 @@ For the Southern Hemisphere, the scatter plot and linear regression indicate a p
 The scatter plot for the Northern Hemisphere displays a positive but weak correlation between latitude and humidity, with an r-value of 0.216. The linear regression equation y = 0.50x + 54.73 indicates that humidity slightly increases by 0.50% for each degree increase in latitude. The low r-value signifies that latitude only explains about 22% of the variance in humidity, suggesting that a multitude of other factors are at play in determining humidity levels, such as ocean currents, continental positioning, and seasonal weather patterns. This weak correlation highlights the complexity of atmospheric conditions and the limited role latitude plays in humidity.
 
 #### Linear Regression for Humidity in the Southern Hemisphere 
-![image](
+![image](images/plot4.svg)
+
+The scatter plot for the Southern Hemisphere depicts a positive correlation between latitude and humidity, as illustrated by the regression line with the equation y = 0.44x + 85.90. However, the correlation is weak, with an r-value of 0.138. This suggests that as one moves closer to the equator from southern latitudes, there is a slight increase in humidity levels, with an increase of 0.44% in humidity for each degree of latitude approached towards zero. The low r-value indicates that latitude alone does not strongly determine humidity levels in the Southern Hemisphere, accounting for only about 14% of the variability. Other factors such as local weather systems, oceanic influences, and topography likely play a more significant role in shaping humidity patterns.
+
+#### Linear Regression for Cloudiness in the Northern Hemisphere
+![image](images/plot5.svg)
+
+The scatter plot for the Northern Hemisphere shows a positive correlation between latitude and cloudiness, represented by the regression equation y = 0.85x + 24.76. The r-value of 0.180 indicates a weak correlation, suggesting that as latitude increases, there is a small tendency for cloudiness to increase as well. However, with the r-value being relatively low, it implies that only about 18% of the variability in cloudiness can be explained by latitude, indicating that other factors such as atmospheric circulation, local weather patterns, and geographic features have a more significant impact on cloudiness levels.
+
+#### Linear Regression for Cloudiness in the Southern Hemisphere
+
