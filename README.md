@@ -560,3 +560,8 @@ The scatter plot for the Northern Hemisphere shows the relationship between lati
 ![image](images/plot8.svg)
 
 The scatter plot for the Southern Hemisphere depicts a negative correlation between latitude and wind speed, as shown by the regression equation y = -0.18x + 3.35. This suggests that wind speeds tend to decrease as one moves away from the equator towards higher southern latitudes. The r-value of 0.2055 indicates a weak correlation, with latitude accounting for approximately 20.55% of the variation in wind speed. This demonstrates that while there is a trend of decreasing wind speed with increasing latitude in the Southern Hemisphere, the majority of wind speed variation is likely influenced by factors other than latitude, such as local geography, oceanic currents, and atmospheric conditions.
+
+### VacationPy
+![image](images/map1.png)
+
+The map provided is a global representation of cities, each marked by a colored bubble whose size corresponds to the relative humidity of that location. The distribution of cities spans both hemispheres, with a dense clustering along the equatorial region and a noticeable spread towards the poles. A diverse palette of colors represents different cities, as indicated in the map's legend. Larger bubbles, which signify higher humidity levels, appear to be dispersed across various latitudes without a distinct pattern, implying that high humidity can be found from tropical to temperate zones. It's also observable that some regions, potentially those closer to coastlines or within tropical zones, have a higher concentration of larger bubbles, possibly reflecting the influence of maritime and tropical climates on local humidity levels.
