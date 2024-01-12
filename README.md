@@ -556,3 +556,7 @@ In the Southern Hemisphere scatter plot, the regression line with the equation y
 
 The scatter plot for the Northern Hemisphere shows the relationship between latitude and wind speed with a very slight positive trend, as indicated by the regression equation y = 0.04x + 7.00. The corresponding r-value of 0.0188 is very low, suggesting an extremely weak correlation between latitude and wind speed. In practical terms, this means that latitude alone has a negligible effect on wind speed, with only about 1.88% of the variance in wind speed being explained by changes in latitude. This highlights the dominance of other meteorological and geographical factors over latitude in influencing wind speed in the Northern Hemisphere.
 
+#### Linear Regression for Wind Speed in the Southern Hemisphere
+![image](images/plot8.svg)
+
+The scatter plot for the Southern Hemisphere depicts a negative correlation between latitude and wind speed, as shown by the regression equation y = -0.18x + 3.35. This suggests that wind speeds tend to decrease as one moves away from the equator towards higher southern latitudes. The r-value of 0.2055 indicates a weak correlation, with latitude accounting for approximately 20.55% of the variation in wind speed. This demonstrates that while there is a trend of decreasing wind speed with increasing latitude in the Southern Hemisphere, the majority of wind speed variation is likely influenced by factors other than latitude, such as local geography, oceanic currents, and atmospheric conditions.
