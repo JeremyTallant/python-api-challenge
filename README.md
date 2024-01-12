@@ -550,3 +550,9 @@ The scatter plot for the Northern Hemisphere shows a positive correlation betwee
 ![image](images/plot6.svg)
 
 In the Southern Hemisphere scatter plot, the regression line with the equation y = 0.59x + 79.75 indicates a positive correlation between latitude and cloudiness, suggesting that cloudiness increases as one moves towards the equator. However, the r-value of 0.0548 reflects a very weak correlation, meaning that latitude explains only about 5% of the variation in cloudiness. This implies that while there is a slight overall increase in cloudiness closer to the equator, the majority of variation in cloudiness is likely due to other factors not accounted for by latitude alone, such as ocean currents, land-sea interactions, and specific weather events.
+
+#### Linear Regression for Wind Speed in the Northern Hemisphere
+![image](images/plot7.svg)
+
+The scatter plot for the Northern Hemisphere shows the relationship between latitude and wind speed with a very slight positive trend, as indicated by the regression equation y = 0.04x + 7.00. The corresponding r-value of 0.0188 is very low, suggesting an extremely weak correlation between latitude and wind speed. In practical terms, this means that latitude alone has a negligible effect on wind speed, with only about 1.88% of the variance in wind speed being explained by changes in latitude. This highlights the dominance of other meteorological and geographical factors over latitude in influencing wind speed in the Northern Hemisphere.
+
