@@ -547,3 +547,6 @@ The scatter plot for the Northern Hemisphere shows a positive correlation betwee
 
 #### Linear Regression for Cloudiness in the Southern Hemisphere
 
+![image](images/plot6.svg)
+
+In the Southern Hemisphere scatter plot, the regression line with the equation y = 0.59x + 79.75 indicates a positive correlation between latitude and cloudiness, suggesting that cloudiness increases as one moves towards the equator. However, the r-value of 0.0548 reflects a very weak correlation, meaning that latitude explains only about 5% of the variation in cloudiness. This implies that while there is a slight overall increase in cloudiness closer to the equator, the majority of variation in cloudiness is likely due to other factors not accounted for by latitude alone, such as ocean currents, land-sea interactions, and specific weather events.
