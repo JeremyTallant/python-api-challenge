@@ -524,3 +524,8 @@ The scatter plot correlates city latitude with wind speed on January 7th, 2024. 
 ![image](images/plot1.svg)
 
 The analysis of Northern Hemisphere data reveals a strong negative correlation between latitude and maximum temperature, with an r-value of 0.72 indicating that approximately 72% of the variance in temperature can be explained by latitude alone. The linear regression model, represented by the equation y = -1.39x + 92.09, suggests that for every degree increase in latitude, there is a corresponding decrease of 1.39 degrees in maximum temperature. This pattern underscores the significant impact of latitude on temperature in the Northern Hemisphere, although other factors undoubtedly play a role in regional temperature variations.
+
+#### Linear Regression for Max Temp in the Souther Hemisphere 
+![image](images/plot2.svg)
+
+For the Southern Hemisphere, the scatter plot and linear regression indicate a positive correlation between latitude and maximum temperature, with an r-value of 0.296. The regression line, described by the equation y = 0.33x + 80.75, suggests that as one moves closer to the equator (latitude approaching zero from the negative side), the maximum temperature increases by 0.33 degrees for each degree of latitude decrease. This correlation is less strong compared to the Northern Hemisphere data, with the r-value suggesting that only about 30% of the variability in temperature is accounted for by latitude, pointing to a significant influence from other climatic factors.
